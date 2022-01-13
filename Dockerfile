@@ -1,5 +1,5 @@
 # Prepare the base environment.
-FROM ubuntu:20.04 as builder_base_ledgergw
+FROM ubuntu:20.04 as builder_base_container
 MAINTAINER asi@dbca.wa.gov.au
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Australia/Perth
@@ -15,7 +15,7 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 #RUN ln -s /usr/bin/pip3 /usr/bin/pip
 RUN pip install --upgrade pip
 # Install Python libs from requirements.txt.
-FROM builder_base_ledgergw as python_libs_ledgergw
+FROM builder_base_container as python_libs_ledgergw
 WORKDIR /app
 COPY requirements.txt ./
 RUN pip3 install --no-cache-dir -r requirements.txt \
