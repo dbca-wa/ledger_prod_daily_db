@@ -33,5 +33,5 @@ RUN service cron start
 RUN touch /var/log/cron.log
 RUN service cron start
 RUN chmod 755 /startup.sh
-HEALTHCHECK --interval=1m --timeout=5s --start-period=10s --retries=3 CMD cron status | grep "cron is running" || exit 1
+HEALTHCHECK CMD cron status | grep "cron is running" || exit 1
 CMD ["/startup.sh"]
