@@ -32,6 +32,8 @@ RUN crontab /etc/cron.d/container
 RUN service cron start
 RUN touch /var/log/cron.log
 RUN service cron start
+RUN chmod 755 /open_daily_db
+RUN chmod 755 /ledger_daily_rebuild.sh
 RUN chmod 755 /startup.sh
 HEALTHCHECK CMD service cron status | grep "cron is running" || exit 1
 CMD ["/startup.sh"]
