@@ -3,7 +3,7 @@
 echo "Running ledger production daily database rebuild.";
 
 if [ $TEMPORARY_LEDGER_DATABASE ==  'ledger_prod' ]; then
-        echo "ledger_prod can not be a TEMPORARY Database";
+        echo "ERROR: ledger_prod can not be a TEMPORARY Database";
         exit;
 fi
 
