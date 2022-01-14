@@ -1,1 +1,1 @@
-
+01 7 * * 1-5 root /ledger_daily_rebuild.sh
