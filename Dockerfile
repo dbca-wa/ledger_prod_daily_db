@@ -27,6 +27,7 @@ COPY cron /etc/cron.d/container
 COPY startup.sh /
 COPY ledger_daily_rebuild.sh /
 COPY open_daily_db /
+COPY nginx-default.conf /etc/nginx/sites-enabled/default
 RUN service rsyslog start
 RUN chmod 0644 /etc/cron.d/container
 RUN crontab /etc/cron.d/container
