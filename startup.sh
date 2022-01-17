@@ -12,4 +12,12 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
+echo "Starting Nginx"
+service nginx start &
+status=$?
+if [ $status -ne 0 ]; then
+  echo "Failed to start nginx: $status"
+  exit $status
+fi
+
 /bin/bash
