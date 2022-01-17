@@ -21,5 +21,6 @@ done
 echo "Importing Ledger prod into ledger daily database";
 psql "host=$TEMPORARY_LEDGER_HOST port=5432 dbname=$TEMPORARY_LEDGER_DATABASE user=$TEMPORARY_LEDGER_USERNAME password=$TEMPORARY_LEDGER_PASSWORD sslmode=require" < /dbdumps/ledger_prod.sql
 
+rm /dbdumps/ledger_prod.sql.gz
 gzip /dbdumps/ledger_prod.sql
 mv /dbdumps/ledger_prod.sql.gz /dbdumps/dumps/
