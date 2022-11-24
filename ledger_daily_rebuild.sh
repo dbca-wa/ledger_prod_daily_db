@@ -32,4 +32,4 @@ mv /dbdumps/ledger_prod.sql.gz /dbdumps/dumps/
 # LEDGER CORE PROD DATABASE TABLES
 rm /dbdumps/ledger_core_prod.sql.gz
 gzip /dbdumps/ledger_core_prod.sql
-mv /dbdumps/ledger_core_prod.sql /dbdumps/dumps/
+mv /dbdumps/ledger_core_prod.sql.gz /dbdumps/dumps/
