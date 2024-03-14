@@ -12,7 +12,7 @@ pg_dump "host=$PRODUCTION_LEDGER_HOST port=5432 dbname=$PRODUCTION_LEDGER_DATABA
 
 # Build Ledger SQL Dump with out reversion
 pg_dump -T reversion_revision -T  reversion_version  "host=$PRODUCTION_LEDGER_HOST port=5432 dbname=$PRODUCTION_LEDGER_DATABASE user=$PRODUCTION_LEDGER_USERNAME password=$PRODUCTION_LEDGER_PASSWORD sslmode=require"  > /dbdumps/ledger_prod_no_reversion.sql
-pg_dump -t reversion_revision -t  reversion_version  "host=$PRODUCTION_LEDGER_HOST port=5432 dbname=$PRODUCTION_LEDGER_DATABASE user=$PRODUCTION_LEDGER_USERNAME password=$PRODUCTION_LEDGER_PASSWORD sslmode=require"  >> /dbdumps/ledger_prod_no_reversion.sql
+pg_dump --schema-only -t reversion_revision -t  reversion_version  "host=$PRODUCTION_LEDGER_HOST port=5432 dbname=$PRODUCTION_LEDGER_DATABASE user=$PRODUCTION_LEDGER_USERNAME password=$PRODUCTION_LEDGER_PASSWORD sslmode=require"  >> /dbdumps/ledger_prod_no_reversion.sql
 
 # DROP All TABLES IN DAILY DB
 for I in $(psql "host=$TEMPORARY_LEDGER_HOST port=5432 dbname=$TEMPORARY_LEDGER_DATABASE user=$TEMPORARY_LEDGER_USERNAME password=$TEMPORARY_LEDGER_PASSWORD sslmode=require" -c "SELECT tablename FROM pg_tables" -t);
